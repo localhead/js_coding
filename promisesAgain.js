@@ -8,7 +8,7 @@ const debounce = async function (callback) {
 // для того чтобы увидеть результат нужно запустить эту функцию в другой асинхронной функции и уже там ловить результат выполнения промиса
 (async () => {
   const kek = await debounce("https://jsonplaceholder.typicode.com/todos/1");
-  //console.log(kek);
+  console.log(kek);
 })();
 
 ///
