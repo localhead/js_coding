@@ -109,3 +109,28 @@ console.log(obj1.prop.arrow()); // ? 'undefined'
 // this ссылается на obj.prop. Таким образом, this.name будет "Rox".
 
 obj1.prop.arrowInsideFunction()(); // ? 'Rox'
+
+/*  Задачка на контекст с собеса */
+
+// - Изменить функцию так, чтобы вернулось “Mau, Just give Pizza”
+String.prototype.showText = () => "Just give Pizza";
+
+const name = "“Mau";
+
+String.prototype.showText = function () {
+  return this + "Just give Pizza";
+};
+
+console.log(name.showText()); /// “Mau, Just give Pizza”
+
+// След задачка
+const shape = {
+  radius: 10,
+  diameter() {
+    return this.radius * 2;
+  },
+  perimeter: () => 2 * Math.PI * this.radius,
+};
+
+console.log(shape.diameter()); // 20
+console.log(shape.perimeter()); // This will log the perimeter

@@ -34,3 +34,21 @@ function sumDigits(x) {
 
 const result = sumDigits(10);
 result(2);
+
+/// Задача на замыкание с собеса
+let i = 0;
+while (i++ < 10) {
+    setTimeout(() => {
+        console.log(i);
+    }, 0);
+}
+
+function curr (fn) {
+  return function fn(...args) {
+    if (args.length >= fn.length) {
+      return fn.apply(this, args)
+    } else {
+      return function(...next )
+    }
+  }
+}

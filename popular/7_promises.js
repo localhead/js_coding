@@ -37,3 +37,33 @@ async function debounceDeclaration(callback) {
 debounceDeclaration("https://jsonplaceholder.typicode.com/todos/1");
 
 //console.log(debounce("https://jsonplaceholder.typicode.com/todos/1"));
+
+// delay - написать реализацию функции
+
+const delay = (time) => {
+  return new Promise((resolve) => {
+    return setTimeout(() => {
+      resolve();
+    }, time);
+  });
+};
+
+delay(5000).then(() => console.log("5000 sec"));
+
+/// Написать браузерный ПромисАлл
+
+Promise.all([
+  Promise.resolve(1),
+  fetch("https://jsonplaceholder.typicode.com/todos/1").then((response) =>
+    response.json()
+  ),
+  fetch("https://jsonplaceholder.typicode.com/todos/2").then((response) =>
+    response.json()
+  ),
+  fetch("https://jsonplaceholder.typicode.com/todos/3").then((response) =>
+    response.json()
+  ),
+  Promise.resolve(10),
+]).then((result) => {
+  console.log(result); // [1, 20, 30, 40, 10]
+});
